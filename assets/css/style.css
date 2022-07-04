@@ -1,0 +1,12 @@
+header {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(2, 2, 156);
+    color: white;
+    font-family: 'Rubik', sans-serif;
+}
+
+#search-btn {
+    background-color: rgb(83, 83, 248);
+    color: white;
+}

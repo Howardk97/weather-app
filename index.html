@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Tab title -->
+    <title>Weather</title>
+
+    <!-- Link to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@700&family=Work+Sans:wght@200&display=swap" rel="stylesheet">
+    
+    <!-- Link to bootstap -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+
+    <!-- Link style.css file -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+    <!-- header of webpage -->
+    <header>
+        <h1>Weather Dashboard</h1>
+    </header>
+    <main>
+        <!-- Contains search bar -->
+        <div class="row">
+        <section id="search-bar">
+            <nav class="navbar">
+                <div class="container-fluid">
+                  <form role="search">
+                    <input class="form-control me-2 mb-3 col-12" type="search" placeholder="Search a city" aria-label="Search" name="search-bar">
+                    <button class="btn btn-outline-success col-12" id="search-btn" type="submit">Search</button>
+                  </form>
+                </div>
+              </nav>
+              <section id="city-container" class="col-12">Cities go here</section>
+        </section>
+
+        <!-- Contains area that will generate list of previously searched cities -->
+        <!-- <section id="city-container">Cities go here</section> -->
+
+        <!-- section that will display the weather -->
+        <section id="weather-display col-9">Weather goes</section>
+        </div>
+
+    </main>
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    <!-- Moment CDN -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/x.y.z/moment.min.js"></script> -->
+
+    <!-- Link to script.js file -->
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>

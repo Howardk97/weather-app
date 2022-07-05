@@ -3,10 +3,21 @@ header {
     justify-content: center;
     background-color: rgb(2, 2, 156);
     color: white;
-    font-family: 'Rubik', sans-serif;
+    font-family: 'Hind Siliguri', sans-serif;
+}
+
+h1 {
+    font-family: 'Hind Siliguri', sans-serif;
 }
 
 #search-btn {
     background-color: rgb(83, 83, 248);
     color: white;
+}
+
+#weather-display {
+    border: 0.01px;
+    border-style: solid;
+    border-color: black;
+    height: 50%;
 }

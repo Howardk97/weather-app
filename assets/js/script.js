@@ -32,7 +32,7 @@ function searchResponse(event) {
     localStorage.setItem("city", city);
 
     // API URL for weather data
-    var queryURL = "http://api.openweathermap.org/data/2.5/weather?units=imperial&q=" + city + "&appid=" + APIKey;
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?units=imperial&q=" + city + "&appid=" + APIKey;
 
     // sanitize the API URL to retrieve data
     fetch(queryURL)
@@ -60,7 +60,7 @@ function searchResponse(event) {
         var cityHeader = document.createElement('div');
 
         // attach weather icon to city header
-        cityIcon.setAttribute('src', 'http://openweathermap.org/img/wn/' + data.weather[0].icon + '@2x.png');
+        cityIcon.setAttribute('src', 'https://openweathermap.org/img/wn/' + data.weather[0].icon + '@2x.png');
 
         // add text to elements
         cityTitle.textContent = city;
@@ -100,7 +100,7 @@ function searchResponse(event) {
                 var cityHeader = document.createElement('div');
 
                 // attach weather icon to city header
-                cityIcon.setAttribute('src', 'http://openweathermap.org/img/wn/' + data.weather[0].icon + '@2x.png');
+                cityIcon.setAttribute('src', 'https://openweathermap.org/img/wn/' + data.weather[0].icon + '@2x.png');
 
                 // add text to elements
                 cityTitle.textContent = city;

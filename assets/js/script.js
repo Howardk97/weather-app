@@ -19,20 +19,22 @@ var cityIcon = document.createElement('img');
 
 // Function generated when search is clicked
 function searchResponse(event) {
+    // prevent form defalt setting
     event.preventDefault();
+
+    // display element to hold weather data
     weatherDisplay.style.display = "block";
     
+    // retrieve user input and store in variable
     var city = document.getElementById('search-input').value;
 
+    // save previously searched city in local storage
     localStorage.setItem("city", city);
 
-    // console.log(cityArray);
-
-    // console.log(city);
-    // create an element button to
-
+    // API URL for weather data
     var queryURL = "http://api.openweathermap.org/data/2.5/weather?units=imperial&q=" + city + "&appid=" + APIKey;
 
+    // sanitize the API URL to retrieve data
     fetch(queryURL)
     .then(function(res) {
         return res.json();
@@ -40,7 +42,7 @@ function searchResponse(event) {
     .then(function(data) {
         // buttons for previously searched cities
         var cityBtn = document.createElement('button');
-        console.log(data.weather[0].icon);
+        console.log(data);
 
         // Style previously searched city buttons
         cityBtn.classList.add("btn");
@@ -82,10 +84,75 @@ function searchResponse(event) {
         weatherDisplay.appendChild(weatherDisplayHumidity);
         weatherDisplayHumidity.textContent = 'Humidity: ' + data.main.humidity + ' %';
 
-        weatherDisplay.setAttribute('style', 'background: lightblue;')
+        // style weather data background
+        weatherDisplay.setAttribute('style', 'background: lightblue;');
 
-        
+        // save city latitude and longitude in local storage
+        localStorage.setItem("cityLat", data.coord.lat);
+        localStorage.setItem("cityLon", data.coord.lon);
+    
+        function cityGen(event) {
+            if(cityBtn) {
+                // console.log("It worked!");
+                 // display element to hold weather data
+                weatherDisplay.style.display = "block";
+
+                var cityHeader = document.createElement('div');
+
+                // attach weather icon to city header
+                cityIcon.setAttribute('src', 'http://openweathermap.org/img/wn/' + data.weather[0].icon + '@2x.png');
+
+                // add text to elements
+                cityTitle.textContent = city;
+                cityDate.textContent = '(' + todayDate + ')';
+                
+
+                // attach to webpage
+                cityHeader.appendChild(cityTitle);
+                cityHeader.appendChild(cityDate);
+                weatherDisplay.appendChild(cityHeader);
+                cityHeader.appendChild(cityIcon);
+
+                // Add class to city header
+                cityHeader.classList.add("row");
+
+                // Append weather data to page
+                weatherDisplay.appendChild(weatherDisplayTemp);
+                weatherDisplayTemp.textContent = 'Temperature: ' + data.main.temp + '°F';
+                weatherDisplay.appendChild(weatherDisplayWind);
+                weatherDisplayWind.textContent = 'Wind: ' + data.wind.speed + ' MPH';
+                weatherDisplay.appendChild(weatherDisplayHumidity);
+                weatherDisplayHumidity.textContent = 'Humidity: ' + data.main.humidity + ' %';
+
+                // style weather data background
+                weatherDisplay.setAttribute('style', 'background: lightblue;');
+
+            }
+        }
+
+        cityBtn.addEventListener('click', cityGen);
     }) 
+
+    // Prev API request
+    // var lat = localStorage.getItem('cityLat');
+    // console.log(lat);
+
+    // var lon = localStorage.getItem('cityLat');
+    // console.log(lon);
+
+    // API Key
+    // forcastAPIKey = '407c6320fc52a521f24cb0b9b1b94dfe';
+    // Second API
+    // var forcastURL = "api.openweathermap.org/data/2.5/forecast?lat=35&lon=139&appid=" + forcastAPIKey;
+    // console.log(data.coord.lat);
+    // fetch(forcastURL)
+    // .then(function(res) {
+    //     return res.json();
+    // })
+    // .then(function(data) {
+    // console.log(data);
+    // })
 }
 
 searchBtn.addEventListener('click', searchResponse);
+

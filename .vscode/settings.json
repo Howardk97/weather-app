@@ -1,4 +1,3 @@
-"repository": {
-    "type": "git",
-    "url": "https://github.com/Howardk97/weather-app.git"
-},
+{
+    "liveServer.settings.port": 9418
+}

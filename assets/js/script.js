@@ -3,6 +3,8 @@ var userInputDisplay = document.getElementById('city-container');
 var searchBtn = document.getElementById('search-btn');
 var APIKey = 'f329568241f9989db1ccb96467bd08dd';
 var weatherDisplay = document.getElementById('weather-display');
+var forecastFiveDay = document.getElementById('forecast-five-day');
+console.log(forecastFiveDay);
 
 weatherDisplay.style.display = "none";
 
@@ -152,6 +154,19 @@ function searchResponse(event) {
     // .then(function(data) {
     // console.log(data);
     // })
+
+    var forcastURL = 'https://api.openweathermap.org/data/2.5/forecast?q=' + city + '&appid=' + APIKey;
+
+    fetch(forcastURL)
+    .then(function(res) {
+        return res.json();
+    })
+    .then(function(data) {
+        console.log(data);
+        var forecastDay1 = document.createElement('span');
+        forecastFiveDay.appendChild(forecastDay1);
+        forecastDay1.textContent = "It worked!"
+    })
 }
 
 searchBtn.addEventListener('click', searchResponse);
